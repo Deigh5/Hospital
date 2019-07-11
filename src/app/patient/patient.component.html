@@ -1,0 +1,16 @@
+<mat-card>
+    <p *ngFor="let pat of patientsz">
+        {{pat.id}}
+        {{pat.name}}
+        {{pat.surname}}
+        {{pat.number}}
+        {{pat.address}}
+        {{pat.city}}
+        {{pat.state}}
+        {{pat.record}}
+
+        <button mat-stroked-button color="primary" [routerLink]="['/Appointment',pat.id]">Appointment</button>
+    </p>
+
+  
+</mat-card>

@@ -1,0 +1,42 @@
+<mat-card style="text-align: center">
+    <h3>Add Doctor Details</h3>
+
+    <mat-form-field>
+        <input matInput placeholder="Doctor ID" [(ngModel)]="did"/>
+    </mat-form-field><br>
+
+    <mat-form-field>
+        <input matInput placeholder="Doctor's Name" [(ngModel)]="Dname"/>
+    </mat-form-field><br>
+
+    <mat-form-field>
+        <input matInput placeholder="Doctor's Surname" [(ngModel)]="Dsurname"/>
+    </mat-form-field><br>
+
+    <mat-form-field>
+        <select matNativeControl placeholder="Specialization" [(ngModel)]="Dspecialization">
+           <option value="Dermatology">Dermatology</option> 
+           <option value="Gynecology">Gynecology</option>
+           <option value="Neurology">Neurology</option>
+           <option value="Pathology">Pathology</option>
+           <option value="Psychiatry">Psychiatry</option>
+           <option value="Surgery">Surgery</option>
+           <option value="Urology">Urology</option>
+        </select>
+    </mat-form-field><br>
+
+    <button mat-flat-button color="primary" [routerLink]="['/Admin']">Back</button>
+    <button mat-flat-button color="primary" (click)="addDoctor(did, Dname, Dsurname, Dspecialization)">Add Doctor</button>
+</mat-card>
+
+<mat-card>
+    <p *ngFor="let doctor of doctorz">
+        {{doctor.did}}
+        Dr. {{doctor.dsurname}}
+        {{doctor.dspecialization}}
+
+        <button mat-flat-button color="primary" (click)="deleteDoctor(doctor)">Delete</button>
+        <button mat-flat-button color="primary" (click)="editDoctor(doctor)">Edit</button>
+        <button mat-flat-button color="primary" [routerLink]="['/AppointmentDetails',doctor.did]">View Appointments</button> 
+    </p>
+</mat-card>

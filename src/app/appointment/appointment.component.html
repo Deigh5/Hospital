@@ -1,0 +1,46 @@
+<mat-card style="text-align: center">
+    <h3>Add Appointment Details</h3>
+    <!-- Patient ID: -->
+    <mat-form-field>
+        <input matInput placeholder="Patient ID" [(ngModel)]="id"/>
+    </mat-form-field><br>
+    <!-- Appointment Date: -->
+    <mat-form-field>
+        <input matInput placeholder="Date" [(ngModel)]="Adate" type="date"/>
+    </mat-form-field><br>
+    <!-- Appointment Reason: -->
+    <mat-form-field>
+        <select matNativeControl placeholder="Reason" [(ngModel)]="Areason">
+            <option value="Check-Up">Check-Up</option>
+            <option value="GetMedication">Get Medication</option>
+        </select>
+    </mat-form-field><br>
+    <!-- Doctor: -->
+    <mat-form-field>
+        <select matNativeControl placeholder="Appointment Doctor" [(ngModel)]="DID">
+            <option value="01">01</option>
+            <option value="02">02</option>
+            <option value="Dr.Leewu">03</option>
+            <option value="Dr.Mahange">04</option>
+            <option value="Dr.Khoza">05</option>
+        </select>
+    </mat-form-field><br>
+
+    <button mat-flat-button color="primary" [routerLink]="['/Patient']">Back</button>
+    <button mat-flat-button color="primary" (click)="addAppointment(id, Adate, Areason, DID)">Save Appointment</button>
+</mat-card>
+
+<mat-card>
+    <p *ngFor="let appointment of appointmentz">
+        {{appointment.id}}
+        {{appointment.date}}
+        {{appointment.reason}}
+        {{appointment.doctor}}
+
+        <button mat-flat-button color="primary" (click)="deleteAppointment(appointment)">Delete</button>
+        <button mat-flat-button color="primary" (click)="editAppointment(appointment)">Edit</button>
+        <button mat-flat-button color="primary" [routerLink]="['/Doctor',appointment.did]">View Appointments</button> 
+    </p>
+</mat-card>
+
+<h4 *ngIf="blank">No Appointment</h4>

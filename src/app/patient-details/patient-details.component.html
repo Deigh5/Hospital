@@ -1,0 +1,19 @@
+<mat-card *ngIf="id">
+    <p >
+        {{id}}
+        {{patientszzz.name}}
+        {{patientszzz.surname}}
+        {{patientszzz.gender}}
+        {{patientszzz.number}}
+        {{patientszzz.address}}
+        {{patientszzz.city}}
+        {{patientszzz.state}}
+        {{patientszzz.record}}
+    </p>
+
+</mat-card>
+
+<mat-card>
+    <button mat-flat-button color="primary" [routerLink]="['/Admin']">Back</button> 
+</mat-card>
+

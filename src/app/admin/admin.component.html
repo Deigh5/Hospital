@@ -1,0 +1,50 @@
+<mat-card style="text-align: center">
+    <h3>Patient Details</h3>
+    <mat-form-field>
+        <input matInput placeholder="Patient ID" [(ngModel)]="PID"/>
+    </mat-form-field><br>
+    <mat-form-field>
+        <input matInput placeholder="Patient Name" [(ngModel)]="Pname"/>
+    </mat-form-field><br>
+    <mat-form-field>
+        <input matInput placeholder="Patient Surname" [(ngModel)]="Psurname"/>
+    </mat-form-field><br>
+    <mat-form-field>
+        <select matNativeControl placeholder="Patient Gender" [(ngModel)]="Pgender">
+            <option value="Female">Female</option>
+            <option value="Male">Male</option>
+        </select>
+    </mat-form-field><br>
+    <mat-form-field>
+        <input matInput placeholder="Patient Phone Number" [(ngModel)]="Pnumber"/>
+    </mat-form-field><br>
+    <mat-form-field>
+        <input matInput placeholder="Patient Address" [(ngModel)]="Paddress"/>
+    </mat-form-field><br>
+    <mat-form-field>
+        <input matInput placeholder="Patient City" [(ngModel)]="Pcity"/>
+    </mat-form-field><br>
+    <mat-form-field>
+        <input matInput placeholder="Patient State" [(ngModel)]="Pstate"/>
+    </mat-form-field><br>
+    <mat-form-field>
+        <textarea matInput placeholder="Patient Medical Record" [(ngModel)]="Precord"></textarea>
+    </mat-form-field><br>
+
+    <button mat-flat-button color="primary" (click)="addPatient(PID, Pname, Psurname, Pgender, Pnumber, Paddress, Pcity, Pstate, Precord)">Add</button>  
+    
+</mat-card>
+
+<mat-card>
+    <p *ngFor="let patient of patientszzz">
+
+        {{patient.id}}
+        <!-- {{patient.name}}
+        {{patient.surname}} -->
+
+        <button mat-flat-button color="primary" (click)="deletePatient(patient)">Delete</button>
+        <button mat-flat-button color="primary" (click)="editPatient(patient)">Edit</button>
+        <button mat-flat-button color="primary" [routerLink]="['/PatientDetails', patient.id]">View Details</button> 
+
+    </p>
+</mat-card>
